@@ -6,35 +6,28 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ReadSymptomDataFromFile implements ISymptomReader {
-
 	private String filepath;
-	
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
-	
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> GetSymptoms() {//méthode pour la lecture d'un fichier ligne par ligne avec gestion des exceptions
 		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
+		if(filepath != null) {
+			try{
 				FileReader fileReader = new FileReader(filepath);
 				BufferedReader reader = new BufferedReader (fileReader);
 				String line = reader.readLine();
-				
-				while (line != null) {
+				while(line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
-			} catch (IOException e) {
+			}catch(IOException e) {
 				e.printStackTrace();
 			}
 		}
 		return result;
 	}
-
 }
