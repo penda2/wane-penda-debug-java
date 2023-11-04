@@ -4,5 +4,5 @@ import java.io.IOException;
 import java.util.Map;
 
 public interface ISymptomWriter {
-    public void WriteSymptoms(Map<String, Integer>Symptoms) throws IOException;
+    public void writeSymptoms(Map<String, Integer>symptoms) throws IOException;
 }
